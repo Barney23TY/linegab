@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LineGab5 – La marketplace du Gabon</title>
+  <meta name="description" content="LineGab5 est la marketplace gabonaise pour acheter, vendre, faire des enchères et découvrir des articles uniques. Téléchargez l'application et rejoignez la communauté." />
+  <meta name="keywords" content="marketplace Gabon, acheter vendre Gabon, annonces Gabon, enchères Gabon, LineGab5" />
+  <meta property="og:title" content="LineGab5 – La marketplace du Gabon" />
+  <meta property="og:description" content="Achetez, vendez, enchérissez. La marketplace gabonaise tout-en-un." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brown: #8C6E63;
+      --brown-light: #BFA99F;
+      --brown-dark: #5C3D33;
+      --navy: #001F54;
+      --navy-mid: #0A0E1A;
+      --gold: #E8C547;
+      --green: #2ECC71;
+      --white: #F9F5F2;
+      --gray: #B0A09A;
+      --card-bg: #1C1510;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy-mid);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 6vw;
+      background: rgba(10,14,26,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(140,110,99,0.2);
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.5rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--brown); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a {
+      text-decoration: none; color: var(--gray);
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--brown);
+      color: var(--white) !important;
+      padding: 8px 20px; border-radius: 50px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--brown-dark) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 140px 6vw 80px;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(140,110,99,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(0,31,84,0.5) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(140,110,99,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(140,110,99,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    #hero > * { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(140,110,99,0.15);
+      border: 1px solid rgba(140,110,99,0.4);
+      color: var(--brown-light);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 50px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 1.05; letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+    h1 em { font-style: normal; color: var(--brown); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--gray); max-width: 580px;
+      line-height: 1.7; margin: 0 auto 2.5rem;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+    .btn-primary {
+      background: var(--brown);
+      color: var(--white); text-decoration: none;
+      padding: 14px 32px; border-radius: 50px;
+      font-weight: 600; font-size: 1rem;
+      transition: transform 0.2s, background 0.2s;
+      box-shadow: 0 4px 24px rgba(140,110,99,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--brown-dark); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--white); text-decoration: none;
+      padding: 14px 32px; border-radius: 50px;
+      font-weight: 500; font-size: 1rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--brown); background: rgba(140,110,99,0.1); }
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem; font-weight: 800; color: var(--white);
+    }
+    .stat-label { font-size: 0.8rem; color: var(--gray); margin-top: 2px; }
+
+    /* ── FEATURES ── */
+    #features {
+      padding: 100px 6vw;
+      position: relative;
+    }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--brown); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.02em; margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--gray); max-width: 500px; line-height: 1.7; margin-bottom: 3.5rem; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+      border: 1.5px solid rgba(140,110,99,0.15);
+      border-radius: 20px; overflow: hidden;
+    }
+    .feat-card {
+      background: rgba(28,21,16,0.9);
+      padding: 2rem 1.8rem;
+      transition: background 0.25s;
+      position: relative;
+    }
+    .feat-card:hover { background: rgba(140,110,99,0.1); }
+    .feat-icon {
+      font-size: 2rem; margin-bottom: 1rem;
+    }
+    .feat-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .feat-desc { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ── HOW IT WORKS ── */
+    #how {
+      padding: 100px 6vw;
+      background: rgba(140,110,99,0.04);
+      border-top: 1px solid rgba(140,110,99,0.1);
+      border-bottom: 1px solid rgba(140,110,99,0.1);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .step { text-align: center; }
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem; font-weight: 800;
+      color: rgba(140,110,99,0.2);
+      line-height: 1; margin-bottom: 1rem;
+    }
+    .step-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+    .step-desc { color: var(--gray); font-size: 0.88rem; line-height: 1.6; }
+
+    /* ── CATEGORIES ── */
+    #categories { padding: 100px 6vw; }
+    .cats-grid {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .cat-pill {
+      background: rgba(28,21,16,0.9);
+      border: 1px solid rgba(140,110,99,0.2);
+      padding: 10px 22px; border-radius: 50px;
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--gray);
+      transition: all 0.2s; cursor: default;
+    }
+    .cat-pill:hover {
+      border-color: var(--brown);
+      color: var(--white);
+      background: rgba(140,110,99,0.12);
+    }
+
+    /* ── PAYMENT ── */
+    #payment {
+      padding: 100px 6vw;
+      background: rgba(140,110,99,0.04);
+      border-top: 1px solid rgba(140,110,99,0.1);
+    }
+    .payment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      margin-top: 3rem;
+    }
+    .payment-text h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.8rem;
+      line-height: 1.2; margin-bottom: 1rem;
+    }
+    .payment-text p { color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
+    .payment-points { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .payment-points li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      color: var(--gray); font-size: 0.95rem;
+    }
+    .payment-points li span:first-child { color: var(--green); flex-shrink: 0; margin-top: 2px; }
+    .payment-visual {
+      background: rgba(28,21,16,0.9);
+      border: 1px solid rgba(140,110,99,0.2);
+      border-radius: 20px; padding: 2.5rem;
+    }
+    .payment-visual .pv-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      color: var(--gray); margin-bottom: 1.5rem;
+    }
+    .pv-row {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(140,110,99,0.1);
+      font-size: 0.9rem;
+    }
+    .pv-row:last-child { border-bottom: none; }
+    .pv-row .label { color: var(--gray); }
+    .pv-row .value { font-weight: 600; }
+    .pv-row .value.green { color: var(--green); }
+    .pv-row .value.orange { color: #F39C12; }
+
+    /* ── CTA ── */
+    #cta {
+      padding: 100px 6vw;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    #cta .bg-glow {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(140,110,99,0.12) 0%, transparent 70%);
+    }
+    #cta > * { position: relative; z-index: 1; }
+    #cta h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.02em; margin-bottom: 1rem;
+    }
+    #cta p { color: var(--gray); font-size: 1.1rem; max-width: 480px; margin: 0 auto 2rem; }
+    .store-badges {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .badge {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white); text-decoration: none;
+      padding: 12px 24px; border-radius: 14px;
+      font-size: 0.9rem; font-weight: 500;
+      transition: background 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .badge:hover { background: rgba(140,110,99,0.2); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 6vw;
+      border-top: 1px solid rgba(140,110,99,0.15);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer .logo { font-size: 1.1rem; }
+    footer p { color: var(--gray); font-size: 0.85rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .payment-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Line<span>Gab5</span></div>
+  <ul>
+    <li><a href="#features">Fonctionnalités</a></li>
+    <li><a href="#how">Comment ça marche</a></li>
+    <li><a href="#categories">Catégories</a></li>
+    <li><a href="#payment">Paiement</a></li>
+    <li><a href="#cta" class="nav-cta">Télécharger</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-tag">🇬🇦 La marketplace du Gabon</div>
+  <h1>Achète, vends,<br /><em>enchéris</em> au Gabon</h1>
+  <p class="hero-sub">
+    LineGab5 connecte acheteurs et vendeurs gabonais en un seul endroit.
+    Annonces, magasins en ligne, enchères et paiement sécurisé via Mobile Money.
+  </p>
+  <div class="hero-btns">
+    <a href="#cta" class="btn-primary">📱 Télécharger l'app</a>
+    <a href="#features" class="btn-outline">Découvrir →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Gabonais</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5%</div>
+      <div class="stat-label">Commission seulement</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Moov</div>
+      <div class="stat-label">Paiement Mobile Money</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24h</div>
+      <div class="stat-label">Délai de retrait</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <p class="section-label reveal">Ce qu'on propose</p>
+  <h2 class="section-title reveal">Tout ce dont tu as besoin<br />pour vendre en ligne</h2>
+  <p class="section-sub reveal">Une plateforme complète conçue pour le marché gabonais, avec toutes les fonctionnalités pour vendeurs et acheteurs.</p>
+  <div class="features-grid reveal">
+    <div class="feat-card">
+      <div class="feat-icon">🏪</div>
+      <div class="feat-title">Magasin en ligne</div>
+      <p class="feat-desc">Crée ton propre magasin, ajoute tes articles avec photos et prix, et gère tes commandes facilement.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📢</div>
+      <div class="feat-title">Annonces</div>
+      <p class="feat-desc">Publie des annonces gratuitement. Vends des vêtements, électroniques, services et bien plus encore.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔨</div>
+      <div class="feat-title">Enchères</div>
+      <p class="feat-desc">Participe à des enchères en temps réel. Fais tes offres et remporte les meilleurs articles au meilleur prix.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💬</div>
+      <div class="feat-title">Messagerie</div>
+      <p class="feat-desc">Discute directement avec les vendeurs ou acheteurs. Négocie, pose tes questions et conclu tes deals.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💳</div>
+      <div class="feat-title">Paiement sécurisé</div>
+      <p class="feat-desc">Paiement via Moov Africa Mobile Money. L'argent est sécurisé jusqu'à confirmation de réception.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📊</div>
+      <div class="feat-title">Tableau de bord</div>
+      <p class="feat-desc">Suis tes ventes, vues et revenus avec des statistiques claires. Gère ton magasin comme un pro.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📖</div>
+      <div class="feat-title">Stories</div>
+      <p class="feat-desc">Partage des photos et vidéos de tes produits en stories. Attire l'attention et booste tes ventes.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔔</div>
+      <div class="feat-title">Notifications</div>
+      <p class="feat-desc">Reçois des alertes en temps réel quand quelqu'un consulte ton annonce, t'envoie un message ou fait une offre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <p class="section-label reveal">Simple comme bonjour</p>
+  <h2 class="section-title reveal">Comment ça marche ?</h2>
+  <p class="section-sub reveal">En quelques étapes tu peux commencer à vendre ou à acheter sur LineGab5.</p>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Télécharge l'app</div>
+      <p class="step-desc">Installe LineGab5 et crée ton compte en quelques secondes avec email ou Google.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <div class="step-title">Crée ton magasin</div>
+      <p class="step-desc">Configure ton profil ou ton magasin, ajoute tes produits avec photos et description.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <div class="step-title">Publie tes articles</div>
+      <p class="step-desc">Mets en ligne tes annonces ou articles de magasin. Choisis ta catégorie, ton prix, ton lieu.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <div class="step-title">Reçois ton argent</div>
+      <p class="step-desc">L'acheteur paie via Mobile Money. Tu reçois 95% du montant directement sur ton compte.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <p class="section-label reveal">Pour tout le monde</p>
+  <h2 class="section-title reveal">Des milliers d'articles<br />dans toutes les catégories</h2>
+  <div class="cats-grid reveal">
+    <div class="cat-pill">👗 Mode & Vêtements</div>
+    <div class="cat-pill">📱 Électronique</div>
+    <div class="cat-pill">🏠 Maison & Déco</div>
+    <div class="cat-pill">💄 Beauté & Soins</div>
+    <div class="cat-pill">🍽️ Alimentation</div>
+    <div class="cat-pill">👜 Accessoires</div>
+    <div class="cat-pill">⚽ Sport & Loisirs</div>
+    <div class="cat-pill">🔧 Services</div>
+    <div class="cat-pill">🚗 Auto & Moto</div>
+    <div class="cat-pill">📚 Livres & Éducation</div>
+    <div class="cat-pill">🎮 Jeux & Jouets</div>
+    <div class="cat-pill">🌿 Agriculture</div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment">
+  <p class="section-label reveal">Sécurisé & transparent</p>
+  <h2 class="section-title reveal">Paiement 100% sécurisé<br />via Mobile Money</h2>
+  <div class="payment-grid">
+    <div class="payment-text reveal">
+      <h3>Ton argent est protégé jusqu'à la livraison</h3>
+      <p>LineGab5 utilise un système de séquestre : l'argent est bloqué lors de l'achat et libéré au vendeur seulement quand l'acheteur confirme avoir reçu son article.</p>
+      <ul class="payment-points">
+        <li><span>✓</span><span>Paiement via Moov Africa (code USSD *555*2*...#)</span></li>
+        <li><span>✓</span><span>Argent sécurisé jusqu'à confirmation de réception</span></li>
+        <li><span>✓</span><span>Le vendeur reçoit 95% du montant total</span></li>
+        <li><span>✓</span><span>Retrait sous 24 à 48h sur Airtel Money ou MobiCash</span></li>
+        <li><span>✓</span><span>Historique de toutes tes transactions disponible</span></li>
+      </ul>
+    </div>
+    <div class="payment-visual reveal">
+      <div class="pv-title">Exemple de transaction</div>
+      <div class="pv-row">
+        <span class="label">Montant de l'article</span>
+        <span class="value">10 000 FCFA</span>
+      </div>
+      <div class="pv-row">
+        <span class="label">Commission LineGab5 (5%)</span>
+        <span class="value orange">- 500 FCFA</span>
+      </div>
+      <div class="pv-row">
+        <span class="label">Le vendeur reçoit</span>
+        <span class="value green">9 500 FCFA</span>
+      </div>
+      <div class="pv-row">
+        <span class="label">Méthode de retrait</span>
+        <span class="value">Airtel / MobiCash</span>
+      </div>
+      <div class="pv-row">
+        <span class="label">Délai de retrait</span>
+        <span class="value">24–48h</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="bg-glow"></div>
+  <p class="section-label reveal">Rejoins-nous dès aujourd'hui</p>
+  <h2 class="reveal">Prêt à vendre ou acheter<br />au Gabon ?</h2>
+  <p class="reveal">Télécharge LineGab5 maintenant et rejoins des milliers de Gabonais qui achètent et vendent en ligne.</p>
+  <div class="hero-btns reveal">
+    <a href="#" class="btn-primary">📲 Disponible bientôt</a>
+  </div>
+  <div class="store-badges reveal" style="margin-top:1.5rem">
+    <a href="#" class="badge">🤖 Google Play</a>
+    <a href="#" class="badge">🍎 App Store</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Line<span>Gab5</span></div>
+  <p>© 2025 LineGab5 · La marketplace gabonaise · Tous droits réservés</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Stagger children
+        e.target.querySelectorAll && [...e.target.querySelectorAll('.feat-card, .step, .cat-pill')].forEach((el, i) => {
+          el.style.transitionDelay = `${i * 0.07}s`;
+          el.classList.add('reveal', 'visible');
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
