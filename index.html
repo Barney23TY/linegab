@@ -5,10 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LineGab5 – La marketplace du Gabon</title>
-  <meta name="description" content="LineGab5 est la marketplace gabonaise pour acheter, vendre, faire des enchères et découvrir des articles uniques. Téléchargez l'application et rejoignez la communauté." />
+  <meta name="description" content="LineGab5 — La référence du commerce en ligne au Gabon. Achetez, vendez et enchérissez facilement. Rejoignez la communauté dès maintenant." />
   <meta name="keywords" content="marketplace Gabon, acheter vendre Gabon, annonces Gabon, enchères Gabon, LineGab5" />
   <meta property="og:title" content="LineGab5 – La marketplace du Gabon" />
-  <meta property="og:description" content="Achetez, vendez, enchérissez. La marketplace gabonaise tout-en-un." />
+  <meta property="og:description" content="LineGab5 — La référence du commerce en ligne au Gabon. Achetez, vendez et enchérissez facilement." />
+  <meta http-equiv="refresh" content="0; url=https://linegab5.web.app/" />
+  <link rel="canonical" href="https://linegab5.web.app/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
@@ -553,12 +555,14 @@
 </footer>
 
 <script>
+  // Redirect immédiat vers le vrai site
+  window.location.replace("https://linegab5.web.app/");
+
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        // Stagger children
         e.target.querySelectorAll && [...e.target.querySelectorAll('.feat-card, .step, .cat-pill')].forEach((el, i) => {
           el.style.transitionDelay = `${i * 0.07}s`;
           el.classList.add('reveal', 'visible');
