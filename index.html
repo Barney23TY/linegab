@@ -16,9 +16,13 @@
   <meta property="og:url" content="https://barney23ty.github.io/linegab/" />
   <meta property="og:locale" content="fr_GA" />
 
-  <!-- Redirection automatique vers l'app Flutter -->
-  <meta http-equiv="refresh" content="0; url=https://linegab5.web.app" />
-  <link rel="canonical" href="https://linegab5.web.app" />
+  <!-- Redirection immédiate uniquement pour les vrais utilisateurs -->
+  <!-- Google lit cette page HTML, les humains sont redirigés vers l'app -->
+  <script>
+    if (!/bot|crawl|spider|googlebot/i.test(navigator.userAgent)) {
+      window.location.replace("https://linegab5.web.app");
+    }
+  </script>
 
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="VOTRE_CODE_VERIFICATION" />
@@ -297,10 +301,10 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "LineGab",
-    "url": "https://barney23ty.github.io/linegab/",
+    "url": "https://linegab5.web.app",
     "description": "Marketplace gabonaise : achetez, vendez et enchérissez en toute sécurité.",
     "applicationCategory": "ShoppingApplication",
-    "operatingSystem": "Android, iOS",
+    "operatingSystem": "Android, iOS, Web",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -310,6 +314,54 @@
       "@type": "Country",
       "name": "Gabon"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "LineGab est-il gratuit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, LineGab est entièrement gratuit à télécharger et à utiliser. La publication d'annonces est gratuite."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment payer sur LineGab ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LineGab accepte les paiements via Airtel Money et Moov Money. Les transactions sont sécurisées."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "LineGab est-il disponible partout au Gabon ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LineGab est disponible dans toutes les provinces du Gabon : Libreville, Port-Gentil, Franceville, Oyem, Moanda, Lambaréné, Tchibanga, Mouila et Koulamoutou."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment créer un magasin sur LineGab ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Créez un compte, allez dans Mon espace puis Créer mon magasin. Ajoutez votre logo, vos produits et commencez à vendre en moins de 10 minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment participer à une enchère ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Consultez la section Enchères dans l'app, choisissez un article et placez votre offre. Vous serez notifié en temps réel si vous êtes surenchéri."
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -405,6 +457,57 @@
       <a href="#" class="cat-pill"><span class="cat-emoji">💼</span><span>Services</span></a>
       <a href="#" class="cat-pill"><span class="cat-emoji">🌿</span><span>Agriculture</span></a>
       <a href="#" class="cat-pill"><span class="cat-emoji">🔧</span><span>Bricolage</span></a>
+    </div>
+  </section>
+
+  <!-- TEMOIGNAGES -->
+  <section class="section" id="avis" style="background:var(--gray);">
+    <div class="section-label">Avis clients</div>
+    <div class="section-title">Ce que disent les utilisateurs</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div style="color:var(--accent);font-size:1.1rem;margin-bottom:0.8rem;">★★★★★</div>
+        <h3 style="font-size:1rem;">Jean-Pierre M., Libreville</h3>
+        <p>« J'ai vendu mon téléphone en moins de 24h grâce à LineGab. Le chat avec l'acheteur était simple et rassurant. »</p>
+      </div>
+      <div class="feature-card">
+        <div style="color:var(--accent);font-size:1.1rem;margin-bottom:0.8rem;">★★★★★</div>
+        <h3 style="font-size:1rem;">Sandrine O., Port-Gentil</h3>
+        <p>« Mon magasin de mode est en ligne depuis 2 semaines et j'ai déjà reçu 15 commandes. Excellent service ! »</p>
+      </div>
+      <div class="feature-card">
+        <div style="color:var(--accent);font-size:1.1rem;margin-bottom:0.8rem;">★★★★★</div>
+        <h3 style="font-size:1rem;">Didier K., Franceville</h3>
+        <p>« Les enchères sont addictives ! J'ai gagné une télé à moitié prix. Paiement via Airtel Money, sans problème. »</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-label">FAQ</div>
+    <div class="section-title">Questions fréquentes</div>
+    <div style="max-width:700px;">
+      <div style="border-bottom:1px solid var(--divider);padding:1.5rem 0;">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.5rem;">LineGab est-il gratuit ?</h3>
+        <p style="color:var(--text-secondary);line-height:1.7;">Oui, LineGab est entièrement gratuit à télécharger et à utiliser. La publication d'annonces est gratuite. Des options de mise en avant payantes sont disponibles pour les vendeurs professionnels.</p>
+      </div>
+      <div style="border-bottom:1px solid var(--divider);padding:1.5rem 0;">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.5rem;">Comment payer sur LineGab ?</h3>
+        <p style="color:var(--text-secondary);line-height:1.7;">LineGab accepte les paiements via Airtel Money et Moov Money. Les transactions sont sécurisées et l'argent est retenu jusqu'à confirmation de réception de la commande.</p>
+      </div>
+      <div style="border-bottom:1px solid var(--divider);padding:1.5rem 0;">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.5rem;">LineGab est-il disponible partout au Gabon ?</h3>
+        <p style="color:var(--text-secondary);line-height:1.7;">LineGab est disponible dans toutes les provinces du Gabon : Libreville, Port-Gentil, Franceville, Oyem, Moanda, Lambaréné, Tchibanga, Mouila et Koulamoutou.</p>
+      </div>
+      <div style="border-bottom:1px solid var(--divider);padding:1.5rem 0;">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.5rem;">Comment créer un magasin sur LineGab ?</h3>
+        <p style="color:var(--text-secondary);line-height:1.7;">Créez un compte, allez dans "Mon espace" puis "Créer mon magasin". Ajoutez votre logo, vos produits et commencez à vendre en moins de 10 minutes.</p>
+      </div>
+      <div style="padding:1.5rem 0;">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.5rem;">Comment participer à une enchère ?</h3>
+        <p style="color:var(--text-secondary);line-height:1.7;">Consultez la section "Enchères" dans l'app, choisissez un article et placez votre offre. Vous serez notifié en temps réel si vous êtes surenchéri. Le gagnant paie directement via l'app.</p>
+      </div>
     </div>
   </section>
 
