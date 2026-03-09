@@ -18,12 +18,20 @@
   <meta property="og:url" content="https://linegab5.web.app" />
   <meta property="og:locale" content="fr_GA" />
 
-  <!-- Redirection immédiate uniquement pour les vrais utilisateurs -->
+  <!-- Redirection instantanée pour les humains, Google lit le HTML -->
   <script>
-    if (!/bot|crawl|spider|googlebot/i.test(navigator.userAgent)) {
-      window.location.replace("https://linegab5.web.app");
-    }
+    (function() {
+      var ua = navigator.userAgent.toLowerCase();
+      var isBot = /bot|crawl|spider|googlebot|bingbot|yahoo|baidu|duckduck/i.test(ua);
+      if (!isBot) {
+        window.location.replace("https://linegab5.web.app");
+      }
+    })();
   </script>
+  <!-- Fallback : redirection après 0 seconde si JS désactivé -->
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://linegab5.web.app" />
+  </noscript>
 
   <!-- ✅ FIX 2 : Remplace TON_VRAI_CODE par le code reçu depuis Google Search Console -->
   <meta name="google-site-verification" content="TON_VRAI_CODE" />
@@ -535,21 +543,11 @@
   <footer>
     <a href="#" class="footer-logo">Line<span>Gab</span></a>
     <p>© 2025 LineGab · Libreville, Gabon · Tous droits réservés</p>
-    <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;">contact@linegab.ga</p>
+    <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="84e7ebeaf0e5e7f0c4e8edeae1e3e5e6aae3e5">[email&#160;protected]</a></p>
   </footer>
 
   <!-- ✅ FIX 1 : Bug JavaScript corrigé (isIntersecting au lieu de isIntersectin) -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 120);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.stat').forEach(el => observer.observe(el));
-  </script>
-
-</body>
-</html>
+        if (e.isIntersecting)
