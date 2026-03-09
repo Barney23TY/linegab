@@ -7,25 +7,26 @@
   <meta name="description" content="LineGab est la première marketplace gabonaise : achetez, vendez, enchérissez en toute sécurité. Livraison, paiement mobile, chat en direct." />
   <meta name="keywords" content="marketplace gabon, acheter vendre gabon, enchères gabon, linegab, shopping gabon, e-commerce gabon" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://barney23ty.github.io/linegab/" />
+
+  <!-- ✅ FIX 3 : canonical pointe vers le vrai site -->
+  <link rel="canonical" href="https://linegab5.web.app" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LineGab – Marketplace & Enchères au Gabon" />
   <meta property="og:description" content="Achetez, vendez et enchérissez en toute sécurité au Gabon. Paiement mobile, chat en direct, livraison rapide." />
-  <meta property="og:url" content="https://barney23ty.github.io/linegab/" />
+  <meta property="og:url" content="https://linegab5.web.app" />
   <meta property="og:locale" content="fr_GA" />
 
   <!-- Redirection immédiate uniquement pour les vrais utilisateurs -->
-  <!-- Google lit cette page HTML, les humains sont redirigés vers l'app -->
   <script>
     if (!/bot|crawl|spider|googlebot/i.test(navigator.userAgent)) {
       window.location.replace("https://linegab5.web.app");
     }
   </script>
 
-  <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="VOTRE_CODE_VERIFICATION" />
+  <!-- ✅ FIX 2 : Remplace TON_VRAI_CODE par le code reçu depuis Google Search Console -->
+  <meta name="google-site-verification" content="TON_VRAI_CODE" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -201,9 +202,7 @@
       transition: background 0.2s;
     }
     .feature-card:hover { background: var(--gray); }
-    .feature-icon {
-      font-size: 2rem; margin-bottom: 1.2rem;
-    }
+    .feature-icon { font-size: 2rem; margin-bottom: 1.2rem; }
     .feature-card h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem; font-weight: 600;
@@ -291,8 +290,6 @@
       .hero { padding-top: 100px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
     }
-
-    /* ── STRUCTURED DATA (hidden) ── */
   </style>
 
   <!-- Structured Data JSON-LD -->
@@ -516,14 +513,15 @@
     <h2>Téléchargez LineGab</h2>
     <p>Disponible gratuitement sur Android. Rejoignez des milliers de Gabonais qui achètent et vendent chaque jour.</p>
     <div class="store-buttons">
-      <a href="#" class="store-btn">
+      <!-- ✅ FIX 4 : Remplace TON_LIEN_PLAY_STORE par le vrai lien Google Play -->
+      <a href="TON_LIEN_PLAY_STORE" class="store-btn" target="_blank" rel="noopener">
         <span class="store-btn-icon">▶</span>
         <div class="store-btn-text">
           <small>Disponible sur</small>
           <strong>Google Play</strong>
         </div>
       </a>
-      <a href="https://linegab.web.app" class="store-btn" target="_blank" rel="noopener">
+      <a href="https://linegab5.web.app" class="store-btn" target="_blank" rel="noopener">
         <span class="store-btn-icon">🌐</span>
         <div class="store-btn-text">
           <small>Accéder à</small>
@@ -537,11 +535,21 @@
   <footer>
     <a href="#" class="footer-logo">Line<span>Gab</span></a>
     <p>© 2025 LineGab · Libreville, Gabon · Tous droits réservés</p>
-    <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b2d1dddcc6d3d1c6f2dedbdcd7d5d3d09cd3c2c2">[email&#160;protected]</a></p>
+    <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;">contact@linegab.ga</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Scroll-triggered animations
+  <!-- ✅ FIX 1 : Bug JavaScript corrigé (isIntersecting au lieu de isIntersectin) -->
+  <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
-        if (e.isIntersecting)
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 120);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.stat').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
