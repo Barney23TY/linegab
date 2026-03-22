@@ -8,7 +8,6 @@
   <meta name="keywords" content="marketplace gabon, acheter vendre gabon, enchères gabon, linegab, shopping gabon, e-commerce gabon" />
   <meta name="robots" content="index, follow" />
 
-  <!-- ✅ FIX 3 : canonical pointe vers le vrai site -->
   <link rel="canonical" href="https://linegab5.web.app" />
 
   <!-- Open Graph -->
@@ -17,6 +16,18 @@
   <meta property="og:description" content="Achetez, vendez et enchérissez en toute sécurité au Gabon. Paiement mobile, chat en direct, livraison rapide." />
   <meta property="og:url" content="https://linegab5.web.app" />
   <meta property="og:locale" content="fr_GA" />
+
+  <!-- ✅ IMAGE PREVIEW GOOGLE / RÉSEAUX SOCIAUX -->
+  <meta property="og:image" content="https://barney23ty.github.io/linegab/preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="LineGab – La marketplace du Gabon" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LineGab – Marketplace & Enchères au Gabon" />
+  <meta name="twitter:description" content="Achetez, vendez et enchérissez en toute sécurité au Gabon." />
+  <meta name="twitter:image" content="https://barney23ty.github.io/linegab/preview.png" />
 
   <!-- Redirection instantanée pour les humains, Google lit le HTML -->
   <script>
@@ -28,12 +39,10 @@
       }
     })();
   </script>
-  <!-- Fallback : redirection après 0 seconde si JS désactivé -->
   <noscript>
     <meta http-equiv="refresh" content="0;url=https://linegab5.web.app" />
   </noscript>
 
-  <!-- ✅ FIX 2 : Remplace TON_VRAI_CODE par le code reçu depuis Google Search Console -->
   <meta name="google-site-verification" content="TON_VRAI_CODE" />
 
   <!-- Fonts -->
@@ -521,7 +530,6 @@
     <h2>Téléchargez LineGab</h2>
     <p>Disponible gratuitement sur Android. Rejoignez des milliers de Gabonais qui achètent et vendent chaque jour.</p>
     <div class="store-buttons">
-      <!-- ✅ FIX 4 : Remplace TON_LIEN_PLAY_STORE par le vrai lien Google Play -->
       <a href="TON_LIEN_PLAY_STORE" class="store-btn" target="_blank" rel="noopener">
         <span class="store-btn-icon">▶</span>
         <div class="store-btn-text">
@@ -543,11 +551,20 @@
   <footer>
     <a href="#" class="footer-logo">Line<span>Gab</span></a>
     <p>© 2025 LineGab · Libreville, Gabon · Tous droits réservés</p>
-    <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="84e7ebeaf0e5e7f0c4e8edeae1e3e5e6aae3e5">[email&#160;protected]</a></p>
+    <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;">contact@linegab.ga</p>
   </footer>
 
-  <!-- ✅ FIX 1 : Bug JavaScript corrigé (isIntersecting au lieu de isIntersectin) -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
-        if (e.isIntersecting)
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 100);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.stat').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
